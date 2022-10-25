@@ -1,5 +1,7 @@
 package org.globantUniversity.data;
 
+import org.globantUniversity.data.teacher.Teacher;
+
 import java.util.ArrayList;
 import java.util.List;
 
