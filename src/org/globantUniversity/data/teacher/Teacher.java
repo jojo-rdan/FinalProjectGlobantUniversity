@@ -8,8 +8,6 @@ public class Teacher {
         this.professorID = professorID;
         this.name = name;
     }
-    public Teacher() {
-    }
     public int getProfessorID() {
         return professorID;
     }
