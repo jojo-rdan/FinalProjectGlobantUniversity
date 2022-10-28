@@ -26,4 +26,8 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setItsAssignedToALesson(boolean itsAssignedToALesson) {
+        this.itsAssignedToALesson = itsAssignedToALesson;
+    }
 }

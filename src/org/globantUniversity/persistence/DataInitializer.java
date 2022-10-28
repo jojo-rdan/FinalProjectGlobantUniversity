@@ -15,6 +15,7 @@ public class DataInitializer {
         University university = new University("Globant University");
         loadTeachersIntoUniversity(university);
         loadStudentsIntoUniversity(university);
+        loadLessonsIntoUniversity(university);
         return university;
     }
     public static void loadTeachersIntoUniversity(University university){
@@ -54,10 +55,40 @@ public class DataInitializer {
         university.registerStudent(student10);
     }
     public static void loadLessonsIntoUniversity(University university){
-        //Lesson lesson1 = new Lesson("Math", 104, assignedStudents, university.);
-        //Lesson lesson2 = new Lesson("Chemistry", 105, assignedStudents, university.);
-        //Lesson lesson3 = new Lesson("Physics", 106, assignedStudents, university.);
-        //Lesson lesson4 = new Lesson("Biology", 107, assignedStudents, university.);
-        //Lesson lesson5 = new Lesson("History", 108, assignedStudents, university.);
+        List<Student> studentsAssignedtoMath = new ArrayList<>();
+        List<Student> studentsAssignedtoChemistry = new ArrayList<>();
+        List<Student> studentsAssignedtoPhysics = new ArrayList<>();
+        List<Student> studentsAssignedtoBiology = new ArrayList<>();
+        List<Student> studentsAssignedtoHistory = new ArrayList<>();
+        studentsAssignedtoMath.add(university.getStudentsList().get(0));
+        studentsAssignedtoMath.add(university.getStudentsList().get(1));
+        studentsAssignedtoChemistry.add(university.getStudentsList().get(2));
+        studentsAssignedtoChemistry.add(university.getStudentsList().get(3));
+        studentsAssignedtoPhysics.add(university.getStudentsList().get(4));
+        studentsAssignedtoPhysics.add(university.getStudentsList().get(5));
+        studentsAssignedtoBiology.add(university.getStudentsList().get(6));
+        studentsAssignedtoBiology.add(university.getStudentsList().get(7));
+        studentsAssignedtoHistory.add(university.getStudentsList().get(8));
+        studentsAssignedtoHistory.add(university.getStudentsList().get(9));
+        university.getStudentsList().get(0).setItsAssignedToALesson(true);
+        university.getStudentsList().get(1).setItsAssignedToALesson(true);
+        university.getStudentsList().get(2).setItsAssignedToALesson(true);
+        university.getStudentsList().get(3).setItsAssignedToALesson(true);
+        university.getStudentsList().get(4).setItsAssignedToALesson(true);
+        university.getStudentsList().get(5).setItsAssignedToALesson(true);
+        university.getStudentsList().get(6).setItsAssignedToALesson(true);
+        university.getStudentsList().get(7).setItsAssignedToALesson(true);
+        university.getStudentsList().get(8).setItsAssignedToALesson(true);
+        university.getStudentsList().get(9).setItsAssignedToALesson(true);
+        Lesson lesson1 = new Lesson("Math", 104, studentsAssignedtoMath, university.getTeachersList().get(0));
+        Lesson lesson2 = new Lesson("Chemistry", 105, studentsAssignedtoChemistry, university.getTeachersList().get(2));
+        Lesson lesson3 = new Lesson("Physics", 106, studentsAssignedtoPhysics, university.getTeachersList().get(4));
+        Lesson lesson4 = new Lesson("Biology", 107, studentsAssignedtoBiology, university.getTeachersList().get(1));
+        Lesson lesson5 = new Lesson("History", 108, studentsAssignedtoHistory, university.getTeachersList().get(3));
+        university.registerLessons(lesson1);
+        university.registerLessons(lesson2);
+        university.registerLessons(lesson3);
+        university.registerLessons(lesson4);
+        university.registerLessons(lesson5);
     }
 }
