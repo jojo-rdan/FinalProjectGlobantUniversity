@@ -2,25 +2,17 @@ package org.globantUniversity.data.teacher;
 
 public class TeacherFullTime extends Teacher{
     private double baseSalary;
-    private byte experienceYears;
-    public TeacherFullTime(int professorID, String name, double salary,byte experienceYears){
-        super(professorID, name);
-        this.setBaseSalary(salary);
-        this.setExperienceYears(experienceYears);
+    private int experienceYears;
+    public TeacherFullTime(String name,int experienceYears){
+        super(name);
+        this.experienceYears = experienceYears;
+        this.baseSalary = (experienceYears * 1.1) * 1000000;
     }
     public double getBaseSalary() {
         return baseSalary;
     }
 
-    public void setBaseSalary(double baseSalary) {
-        this.baseSalary = baseSalary;
-    }
-
-    public byte getExperienceYears() {
+    public int getExperienceYears() {
         return experienceYears;
-    }
-
-    public void setExperienceYears(byte experienceYears) {
-        this.experienceYears = experienceYears;
     }
 }

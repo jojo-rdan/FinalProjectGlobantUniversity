@@ -4,16 +4,12 @@ public class Teacher {
     private int professorID;
     private String name;
 
-    public Teacher(int professorID, String name) {
-        this.professorID = professorID;
+    public Teacher(String name) {
+        this.professorID = (int)(100000 * Math.random());
         this.name = name;
     }
     public int getProfessorID() {
         return professorID;
-    }
-
-    public void setProfessorID(int professorID) {
-        this.professorID = professorID;
     }
 
     public String getName() {
@@ -23,4 +19,5 @@ public class Teacher {
     public void setName(String name) {
         this.name = name;
     }
+
 }
