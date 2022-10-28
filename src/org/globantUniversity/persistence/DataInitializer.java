@@ -54,7 +54,10 @@ public class DataInitializer {
         university.registerStudent(student10);
     }
     public static void loadLessonsIntoUniversity(University university){
-        //List<Student> assignedStudents = new ArrayList<>();
         //Lesson lesson1 = new Lesson("Math", 104, assignedStudents, university.);
+        //Lesson lesson2 = new Lesson("Chemistry", 105, assignedStudents, university.);
+        //Lesson lesson3 = new Lesson("Physics", 106, assignedStudents, university.);
+        //Lesson lesson4 = new Lesson("Biology", 107, assignedStudents, university.);
+        //Lesson lesson5 = new Lesson("History", 108, assignedStudents, university.);
     }
 }

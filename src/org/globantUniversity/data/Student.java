@@ -4,7 +4,6 @@ public class Student {
     private int studentID;
     private String name;
     private int age;
-
     private boolean itsAssignedToALesson;
 
     public Student(String name, int age) {
