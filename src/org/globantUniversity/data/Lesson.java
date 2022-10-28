@@ -8,7 +8,7 @@ import java.util.List;
 public class Lesson {
     private String lessonName;
     private int assignedClassroom;
-    private List<Student> studentsAssigned = new ArrayList<>();
+    private List<Student> studentsAssigned;
     private Teacher teacher;
 
     public Lesson(String lessonName, int assignedClassroom, List<Student> studentsAssigned, Teacher teacher) {
