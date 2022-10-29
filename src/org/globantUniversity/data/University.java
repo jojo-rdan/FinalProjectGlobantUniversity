@@ -28,10 +28,16 @@ public class University {
         this.lessons.add(lesson);
     }
     public List<Student> getStudentsList() {
-        return students;
+        return this.students;
     }
-    public List<Teacher> getTeachersList() { return teachers; }
-
+    public List<Teacher> getTeachersList() { return this.teachers; }
+    public List<Lesson> getLessonsList() { return this.lessons; }
+    public Teacher getTeacherByIndex(int index){
+        return this.teachers.get(index);
+    }
+    public Lesson getLessonByIndex(int index){
+        return this.lessons.get(index);
+    }
     public String getName() {
         return name;
     }

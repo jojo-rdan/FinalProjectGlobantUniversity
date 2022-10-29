@@ -17,4 +17,27 @@ public class Lesson {
         this.studentsAssigned = studentsAssigned;
         this.teacher = teacher;
     }
+    public String getLessonName() {
+        return lessonName;
+    }
+    public int getAssignedClassroom() {
+        return assignedClassroom;
+    }
+    public List<Student> getStudentsAssigned() {
+        return studentsAssigned;
+    }
+    public Teacher getTeacher() {
+        return teacher;
+    }
+    public String getStudentsName(int index){
+        return this.studentsAssigned.get(index).getName();
+    }
+    @Override
+    public String toString() {
+        int i = 0;
+        return "Lesson='" + lessonName + '\'' +
+                ", assignedClassroom=" + assignedClassroom +
+                ", studentsAssigned=" + getStudentsName(i) +
+                ", teacher=" + teacher;
+    }
 }
