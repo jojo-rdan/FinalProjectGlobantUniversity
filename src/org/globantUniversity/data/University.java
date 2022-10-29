@@ -25,6 +25,7 @@ public class University {
         this.teachers.add(teacher);
     }
     public void registerLessons(Lesson lesson){
+        lesson.setAssignedClassroom(lessons.size()+1);
         this.lessons.add(lesson);
     }
     public List<Student> getStudentsList() {

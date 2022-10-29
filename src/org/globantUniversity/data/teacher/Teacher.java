@@ -14,6 +14,6 @@ public class Teacher {
     @Override
     public String toString() {
         return "ID= " + professorID +
-                ", name= " + name;
+                ", Name= " + name;
     }
 }

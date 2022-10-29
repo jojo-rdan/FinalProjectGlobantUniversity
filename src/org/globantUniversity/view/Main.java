@@ -42,13 +42,23 @@ public class Main {
         }
     }
     public static void printAllTheLessons(University university){
+        Scanner input = new Scanner(System.in);
+        byte internalOptions;
         if(university.getLessonsList().size() == 0){
             System.out.println("There are no lessons registered in the university. Press 4 to create a lesson");
         } else {
             for (int i = 0; university.getLessonsList().size() > i; i++) {
                 System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
             }
-
+            do{
+                System.out.println("If you want to see more details about an specific lesson, enter its assigned classroom, or press 0 to exit");
+                internalOptions = input.nextByte();
+                for (int i = 0; i < university.getLessonsList().size(); i++) {
+                    if(internalOptions == university.getLessonsList().get(i).getAssignedClassroom()){
+                        System.out.println(university.getLessonByIndex(internalOptions-1) + "\n");
+                    }
+                }
+            } while (internalOptions != 0);
         }
     }
     public static void printTheLessonDetail(University university){
