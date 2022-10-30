@@ -1,7 +1,6 @@
 package org.globantUniversity.data;
+
 import org.globantUniversity.data.teacher.Teacher;
-import org.globantUniversity.data.teacher.TeacherFullTime;
-import org.globantUniversity.data.teacher.TeacherPartTime;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,10 +25,21 @@ public class University {
         this.teachers.add(teacher);
     }
     public void registerLessons(Lesson lesson){
+        lesson.setAssignedClassroom(lessons.size()+1);
         this.lessons.add(lesson);
     }
-
     public List<Student> getStudentsList() {
-        return students;
+        return this.students;
+    }
+    public List<Teacher> getTeachersList() { return this.teachers; }
+    public List<Lesson> getLessonsList() { return this.lessons; }
+    public Teacher getTeacherByIndex(int index){
+        return this.teachers.get(index);
+    }
+    public Lesson getLessonByIndex(int index){
+        return this.lessons.get(index);
+    }
+    public String getName() {
+        return name;
     }
 }

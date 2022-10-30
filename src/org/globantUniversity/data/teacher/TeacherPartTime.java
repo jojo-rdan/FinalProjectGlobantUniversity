@@ -9,7 +9,5 @@ public class TeacherPartTime extends Teacher{
         this.baseSalary = (1000000 / 48) * this.activeHoursPerWeek;
     }
     public double getBaseSalary() { return this.baseSalary; }
-
-    public int getActiveHoursPerWeek() { return this.activeHoursPerWeek;
-    }
+    public int getActiveHoursPerWeek() { return this.activeHoursPerWeek; }
 }

@@ -11,7 +11,6 @@ public class TeacherFullTime extends Teacher{
     public double getBaseSalary() {
         return baseSalary;
     }
-
     public int getExperienceYears() {
         return experienceYears;
     }
