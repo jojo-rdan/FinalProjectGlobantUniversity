@@ -85,10 +85,10 @@ public class DataInitializer {
         Lesson lesson3 = new Lesson("Physics", studentsAssignedtoPhysics, university.getTeachersList().get(4));
         Lesson lesson4 = new Lesson("Biology", studentsAssignedtoBiology, university.getTeachersList().get(1));
         Lesson lesson5 = new Lesson("History", studentsAssignedtoHistory, university.getTeachersList().get(3));
-        university.registerLessons(lesson1);
-        university.registerLessons(lesson2);
-        university.registerLessons(lesson3);
-        university.registerLessons(lesson4);
-        university.registerLessons(lesson5);
+        university.registerLesson(lesson1);
+        university.registerLesson(lesson2);
+        university.registerLesson(lesson3);
+        university.registerLesson(lesson4);
+        university.registerLesson(lesson5);
     }
 }
