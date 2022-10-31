@@ -16,11 +16,9 @@ public class Lesson {
         this.studentsAssigned = studentsAssigned;
         this.teacher = teacher;
     }
-
     public void setAssignedClassroom(int assignedClassroom) {
         this.assignedClassroom = assignedClassroom;
     }
-
     public String getLessonName() {
         return lessonName;
     }
@@ -30,20 +28,11 @@ public class Lesson {
     public List<Student> getStudentsAssigned() {
         return studentsAssigned;
     }
-    public Teacher getTeacher() {
-        return teacher;
-    }
-    public String getStudentsName(){
-        for (int i = 0; i < studentsAssigned.size(); i++) {
-            return this.studentsAssigned.get(i).getName();
-        }
-        return null;
-    }
     @Override
     public String toString() {
         return "Lesson= " + lessonName +
                 ", Assigned Classroom= " + assignedClassroom +
-                ", Students Assigned= " + getStudentsAssigned() +
+                ", Students Assigned= " + studentsAssigned.toString() +
                 ", Teacher= " + teacher.getName();
     }
 }

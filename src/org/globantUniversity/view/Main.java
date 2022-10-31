@@ -116,10 +116,21 @@ public class Main {
     }
     public static void listTheLessonsWithGivenStudentIncluded(University university){
         Scanner input = new Scanner(System.in);
-        System.out.println("Choose the student for the lesson (type the ID)");
-        for (int i = 0; i < university.getStudentsList().size(); i++) {
-            System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName() + ", Age= " + university.getStudentsList().get(i).getAge());
-        }
-        byte id = input.nextByte();
+        byte id;
+        do {
+            System.out.println("Choose the student for the lesson (type the ID) or 0 to exit");
+            for (int i = 0; i < university.getStudentsList().size(); i++) {
+                System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName());
+            }
+            id = input.nextByte();
+            System.out.println("This student is in the following lessons= ");
+            for (int i = 0; i < university.getLessonsList().size(); i++) {
+                for (int j = 0; j < university.getLessonsList().get(i).getStudentsAssigned().size(); j++) {
+                    if(id == university.getLessonsList().get(i).getStudentsAssigned().get(j).getStudentID()){
+                        System.out.println(university.getLessonsList().get(i).getLessonName());
+                    }
+                }
+            }
+        } while (id != 0);
     }
 }

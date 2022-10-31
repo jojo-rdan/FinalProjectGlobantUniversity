@@ -80,15 +80,10 @@ public class DataInitializer {
         university.getStudentsList().get(7).setItsAssignedToALesson(true);
         university.getStudentsList().get(8).setItsAssignedToALesson(true);
         university.getStudentsList().get(9).setItsAssignedToALesson(true);
-        Lesson lesson1 = new Lesson("Math", studentsAssignedtoMath, university.getTeachersList().get(0));
-        Lesson lesson2 = new Lesson("Chemistry", studentsAssignedtoChemistry, university.getTeachersList().get(2));
-        Lesson lesson3 = new Lesson("Physics", studentsAssignedtoPhysics, university.getTeachersList().get(4));
-        Lesson lesson4 = new Lesson("Biology", studentsAssignedtoBiology, university.getTeachersList().get(1));
-        Lesson lesson5 = new Lesson("History", studentsAssignedtoHistory, university.getTeachersList().get(3));
-        university.registerLesson(lesson1);
-        university.registerLesson(lesson2);
-        university.registerLesson(lesson3);
-        university.registerLesson(lesson4);
-        university.registerLesson(lesson5);
+        university.createLesson("Math", studentsAssignedtoMath, university.getTeachersList().get(0));
+        university.createLesson("Chemistry", studentsAssignedtoChemistry, university.getTeachersList().get(2));
+        university.createLesson("Physics", studentsAssignedtoPhysics, university.getTeachersList().get(4));
+        university.createLesson("Biology", studentsAssignedtoBiology, university.getTeachersList().get(1));
+        university.createLesson("History", studentsAssignedtoHistory, university.getTeachersList().get(3));
     }
 }
