@@ -19,9 +19,11 @@ public class University {
         this.lessons = new ArrayList<>();
     }
     public void registerStudent(Student student){
+        student.setStudentID(students.size()+1);
         this.students.add(student);
     }
     public void registerTeacher(Teacher teacher){
+        teacher.setProfessorID(teachers.size()+1);
         this.teachers.add(teacher);
     }
     public void registerLesson(Lesson lesson){

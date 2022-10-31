@@ -37,6 +37,9 @@ public class Main {
                 case 4:
                     createLessonWithTeacherAndStudents(myUniversity);
                     break;
+                case 5:
+                    listTheLessonsWithGivenStudentIncluded(myUniversity);
+                    break;
                 default:
                     System.out.println("Please enter a valid option");
             }
@@ -58,7 +61,7 @@ public class Main {
             System.out.println("There are no lessons registered in the university. Press 4 to create a lesson");
         } else {
             for (int i = 0; university.getLessonsList().size() > i; i++) {
-                System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
+                System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", Assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
             }
             do{
                 System.out.println("If you want to see more details about an specific lesson, enter its assigned classroom, or press 0 to exit");
@@ -79,7 +82,7 @@ public class Main {
         int age = input.nextInt();
         System.out.println("Which lesson do you want to add the student to? Press the classroom number");
         for (int i = 0; university.getLessonsList().size() > i; i++) {
-            System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
+            System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", Assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
         }
         int assignedClassroom = input.nextByte();
         university.createStudent(name, age, assignedClassroom);
@@ -93,19 +96,30 @@ public class Main {
         String lessonName = input.next();
         byte internalOptions;
         do {
-            System.out.println("Choose the students for the lesson, or press 0 to exit");
+            System.out.println("Choose the students for the lesson (type the ID to add), or press 0 to exit");
             for (int i = 0; i < university.getStudentsList().size(); i++) {
-                System.out.println("Name= " + university.getStudentsList().get(i).getName() + ", age= " + university.getStudentsList().get(i).getAge());
+                System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName() + ", Age= " + university.getStudentsList().get(i).getAge());
             }
             internalOptions = input.nextByte();
-            students.add(university.getStudentByIndex(internalOptions));
+            if(internalOptions > 0){
+                students.add(university.getStudentByIndex(internalOptions-1));
+            }
             } while (internalOptions != 0);
-            System.out.println("Choose the teacher for the lesson, or press 0 to exit");
+                System.out.println("Choose the teacher for the lesson (type the ID to add)");
             for (int i = 0; i < university.getTeachersList().size(); i++) {
-                System.out.println("Name= " + university.getTeachersList().get(i).getName());
+                System.out.println("Teacher ID= " + university.getTeachersList().get(i).getProfessorID() + ", Name= " + university.getTeachersList().get(i).getName());
             }
             internalOptions = input.nextByte();
-            teacher = university.getTeacherByIndex(internalOptions);
+            teacher = university.getTeacherByIndex(internalOptions-1);
             university.createLesson(lessonName, students, teacher);
+            System.out.println("The lesson was created successfully!\n");
+    }
+    public static void listTheLessonsWithGivenStudentIncluded(University university){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Choose the student for the lesson (type the ID)");
+        for (int i = 0; i < university.getStudentsList().size(); i++) {
+            System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName() + ", Age= " + university.getStudentsList().get(i).getAge());
+        }
+        byte id = input.nextByte();
     }
 }
