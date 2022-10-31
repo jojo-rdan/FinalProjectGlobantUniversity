@@ -7,7 +7,6 @@ public class Student {
     private boolean itsAssignedToALesson;
 
     public Student(String name, int age) {
-        this.studentID = (int)(100000 * Math.random());
         this.name = name;
         this.age = age;
         this.itsAssignedToALesson = false;
@@ -22,9 +21,15 @@ public class Student {
     }
 
     public int getAge(){ return this.age; }
-
+    public void setStudentID(int studentID) {
+        this.studentID = studentID;
+    }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setItsAssignedToALesson(boolean itsAssignedToALesson) {

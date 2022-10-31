@@ -19,12 +19,14 @@ public class University {
         this.lessons = new ArrayList<>();
     }
     public void registerStudent(Student student){
+        student.setStudentID(students.size()+1);
         this.students.add(student);
     }
     public void registerTeacher(Teacher teacher){
+        teacher.setProfessorID(teachers.size()+1);
         this.teachers.add(teacher);
     }
-    public void registerLessons(Lesson lesson){
+    public void registerLesson(Lesson lesson){
         lesson.setAssignedClassroom(lessons.size()+1);
         this.lessons.add(lesson);
     }
@@ -39,7 +41,24 @@ public class University {
     public Lesson getLessonByIndex(int index){
         return this.lessons.get(index);
     }
+    public Student getStudentByIndex(int index){
+        return this.students.get(index);
+    }
     public String getName() {
         return name;
+    }
+    public void createStudent(String name, int age, int assignedClassroom){
+        Student student = new Student(name, age);
+        registerStudent(student);
+        for (int i = 0; i < lessons.size(); i++) {
+            if (assignedClassroom == lessons.get(i).getAssignedClassroom()){
+                lessons.get(i).getStudentsAssigned().add(student);
+            }
+        }
+        student.setItsAssignedToALesson(true);
+    }
+    public void createLesson(String lessonName,List<Student> students, Teacher teacher){
+        Lesson lesson = new Lesson(lessonName, students, teacher);
+        registerLesson(lesson);
     }
 }

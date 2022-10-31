@@ -5,12 +5,20 @@ public class Teacher {
     private String name;
 
     public Teacher(String name) {
-        this.professorID = (int)(100000 * Math.random());
         this.name = name;
     }
     public String getName() {
         return name;
     }
+
+    public void setProfessorID(int professorID) {
+        this.professorID = professorID;
+    }
+
+    public int getProfessorID() {
+        return professorID;
+    }
+
     @Override
     public String toString() {
         return "ID= " + professorID +
