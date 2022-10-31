@@ -10,15 +10,12 @@ public class Teacher {
     public String getName() {
         return name;
     }
-
     public void setProfessorID(int professorID) {
         this.professorID = professorID;
     }
-
     public int getProfessorID() {
         return professorID;
     }
-
     @Override
     public String toString() {
         return "ID= " + professorID +

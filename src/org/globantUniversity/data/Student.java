@@ -11,28 +11,22 @@ public class Student {
         this.age = age;
         this.itsAssignedToALesson = false;
     }
-
     public int getStudentID() {
         return this.studentID;
     }
-
     public String getName() {
         return this.name;
     }
-
     public int getAge(){ return this.age; }
     public void setStudentID(int studentID) {
         this.studentID = studentID;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public void setItsAssignedToALesson(boolean itsAssignedToALesson) {
         this.itsAssignedToALesson = itsAssignedToALesson;
+    }
+    @Override
+    public String toString() {
+        return name +
+                " - age= " + age;
     }
 }
