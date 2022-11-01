@@ -1,6 +1,5 @@
 package org.globantUniversity.persistence;
 
-import org.globantUniversity.data.Lesson;
 import org.globantUniversity.data.Student;
 import org.globantUniversity.data.University;
 import org.globantUniversity.data.teacher.Teacher;
@@ -11,6 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataInitializer {
+    /***
+     *
+     * @return all the data related to the university
+     */
     public static University loadUniversity(){
         University university = new University("Globant University");
         loadTeachersIntoUniversity(university);
@@ -18,6 +21,11 @@ public class DataInitializer {
         loadLessonsIntoUniversity(university);
         return university;
     }
+
+    /***
+     * Initialize and load professors to a university
+     * @param university the type of data on which the data will be loaded
+     */
     public static void loadTeachersIntoUniversity(University university){
         Teacher teacher1 = new TeacherFullTime("Felipe", 4);
         Teacher teacher2 = new TeacherFullTime("Juan", 2);
@@ -32,6 +40,11 @@ public class DataInitializer {
         university.registerTeacher(teacher5);
         university.registerTeacher(teacher6);
     }
+
+    /***
+     * Initialize and load students to a university
+     * @param university the type of data on which the data will be loaded
+     */
     public static void loadStudentsIntoUniversity(University university){
         Student student1 = new Student("Carlos", 25);
         Student student2 = new Student("Margarita", 28);
@@ -54,6 +67,11 @@ public class DataInitializer {
         university.registerStudent(student9);
         university.registerStudent(student10);
     }
+
+    /***
+     * Initialize and load lessons to a university
+     * @param university the type of data on which the data will be loaded
+     */
     public static void loadLessonsIntoUniversity(University university){
         List<Student> studentsAssignedtoMath = new ArrayList<>();
         List<Student> studentsAssignedtoChemistry = new ArrayList<>();

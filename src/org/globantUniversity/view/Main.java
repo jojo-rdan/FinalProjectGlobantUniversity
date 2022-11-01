@@ -20,7 +20,7 @@ public class Main {
             System.out.println("1. List all the teachers");
             System.out.println("2. List all the lessons");
             System.out.println("3. Create a new student and add it to an existing class");
-            System.out.println("4. Create a lesson with existing teacher and students");
+            System.out.println("4. Create a lesson with existing teacher and existing students");
             System.out.println("5. List lessons in which a given student is included");
             System.out.println("0. Exit");
             action = input.nextByte();
@@ -45,6 +45,11 @@ public class Main {
             }
         } while(action != 0);
     }
+
+    /***
+     * Displays all the professors of a university
+     * @param university type of data on which the print will be executed
+     */
     public static void printAllTeachers(University university){
         if(university.getTeachersList().size() == 0){
             System.out.println("There are no professors registered at the university");
@@ -54,6 +59,11 @@ public class Main {
             }
         }
     }
+
+    /***
+     * Prints all the lessons and also shows the details of them
+     * @param university type of data on which the print will be executed
+     */
     public static void printAllTheLessons(University university){
         Scanner input = new Scanner(System.in);
         byte internalOptions;
@@ -74,6 +84,11 @@ public class Main {
             } while (internalOptions != 0);
         }
     }
+
+    /***
+     * Create a student and add it to an existing lesson
+     * @param university type of data needed to execute the actions
+     */
     public static void createStudentAndAddToClass(University university){
         Scanner input = new Scanner(System.in);
         System.out.println("Enter the name of the student");
@@ -88,6 +103,11 @@ public class Main {
         university.createStudent(name, age, assignedClassroom);
         System.out.println("The student was created and add it to a lesson!\n");
     }
+
+    /***
+     * Create a lesson with an existing teacher and students
+     * @param university type of data needed to execute the actions
+     */
     public static void createLessonWithTeacherAndStudents(University university){
         Scanner input = new Scanner(System.in);
         List<Student> students = new ArrayList<>();
@@ -105,7 +125,7 @@ public class Main {
                 students.add(university.getStudentByIndex(internalOptions-1));
             }
             } while (internalOptions != 0);
-                System.out.println("Choose the teacher for the lesson (type the ID to add)");
+                System.out.println("Choose the teacher for the lesson (type the ID to add) or press 0 to exit");
             for (int i = 0; i < university.getTeachersList().size(); i++) {
                 System.out.println("Teacher ID= " + university.getTeachersList().get(i).getProfessorID() + ", Name= " + university.getTeachersList().get(i).getName());
             }
@@ -114,11 +134,16 @@ public class Main {
             university.createLesson(lessonName, students, teacher);
             System.out.println("The lesson was created successfully!\n");
     }
+
+    /***
+     * List the lessons in which a student is included
+     * @param university type of data on which the print will be executed
+     */
     public static void listTheLessonsWithGivenStudentIncluded(University university){
         Scanner input = new Scanner(System.in);
         byte id;
         do {
-            System.out.println("Choose the student for the lesson (type the ID) or 0 to exit");
+            System.out.println("Choose the student for the lesson (type the ID) or press 0 to exit");
             for (int i = 0; i < university.getStudentsList().size(); i++) {
                 System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName());
             }

@@ -8,9 +8,6 @@ public class TeacherPartTime extends Teacher{
         this.activeHoursPerWeek = activeHoursPerWeek;
         this.baseSalary = (int)(1000000 / 48) * this.activeHoursPerWeek;
     }
-    public double getBaseSalary() { return this.baseSalary; }
-    public int getActiveHoursPerWeek() { return this.activeHoursPerWeek; }
-
     @Override
     public String toString() {
         return "Teacher= " + super.getName() +
