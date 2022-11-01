@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class University {
-
     private String name;
     private List<Teacher> teachers;
     private List<Student> students;
@@ -33,7 +32,9 @@ public class University {
     public List<Student> getStudentsList() {
         return this.students;
     }
-    public List<Teacher> getTeachersList() { return this.teachers; }
+    public List<Teacher> getTeachersList() {
+        return this.teachers;
+    }
     public List<Lesson> getLessonsList() { return this.lessons; }
     public Teacher getTeacherByIndex(int index){
         return this.teachers.get(index);

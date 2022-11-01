@@ -6,12 +6,18 @@ public class TeacherFullTime extends Teacher{
     public TeacherFullTime(String name,int experienceYears){
         super(name);
         this.experienceYears = experienceYears;
-        this.baseSalary = (experienceYears * 1.1) * 1000000;
+        this.baseSalary = (int)(experienceYears * 1.1) * 1000000;
     }
     public double getBaseSalary() {
         return baseSalary;
     }
     public int getExperienceYears() {
         return experienceYears;
+    }
+    @Override
+    public String toString() {
+        return "Teacher= " + super.getName() +
+                ", base salary= " + baseSalary +
+                ", experience years= " + experienceYears;
     }
 }
