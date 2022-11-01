@@ -3,7 +3,6 @@ package org.globantUniversity.data.teacher;
 public class Teacher {
     private int professorID;
     private String name;
-
     public Teacher(String name) {
         this.name = name;
     }
@@ -15,10 +14,5 @@ public class Teacher {
     }
     public int getProfessorID() {
         return professorID;
-    }
-    @Override
-    public String toString() {
-        return "ID= " + professorID +
-                ", Name= " + name;
     }
 }

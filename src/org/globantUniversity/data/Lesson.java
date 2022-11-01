@@ -10,7 +10,6 @@ public class Lesson {
     private int assignedClassroom;
     private List<Student> studentsAssigned;
     private Teacher teacher;
-
     public Lesson(String lessonName, List<Student> studentsAssigned, Teacher teacher) {
         this.lessonName = lessonName;
         this.studentsAssigned = studentsAssigned;
