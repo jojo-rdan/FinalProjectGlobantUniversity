@@ -12,7 +12,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         University myUniversity = DataInitializer.loadUniversity();
-        Scanner input = new Scanner(System.in);
         byte action;
         do {
             System.out.println("Welcome to the " + myUniversity.getName() + "\n");
@@ -23,7 +22,7 @@ public class Main {
             System.out.println("4. Create a lesson with existing teacher and existing students");
             System.out.println("5. List lessons in which a given student is included");
             System.out.println("0. Exit");
-            action = input.nextByte();
+            action = Reader.optionsScanner();
             switch (action){
                 case 1:
                     printAllTeachers(myUniversity);
@@ -65,7 +64,6 @@ public class Main {
      * @param university type of data on which the print will be executed
      */
     public static void printAllTheLessons(University university){
-        Scanner input = new Scanner(System.in);
         byte internalOptions;
         if(university.getLessonsList().size() == 0){
             System.out.println("There are no lessons registered in the university. Press 4 to create a lesson");
@@ -75,7 +73,7 @@ public class Main {
             }
             do{
                 System.out.println("If you want to see more details about an specific lesson, enter its assigned classroom, or press 0 to exit");
-                internalOptions = input.nextByte();
+                internalOptions = Reader.optionsScanner();
                 for (int i = 0; i < university.getLessonsList().size(); i++) {
                     if(internalOptions == university.getLessonsList().get(i).getAssignedClassroom()){
                         System.out.println(university.getLessonByIndex(internalOptions-1) + "\n");
@@ -94,12 +92,12 @@ public class Main {
         System.out.println("Enter the name of the student");
         String name = input.next();
         System.out.println("Enter the age of the student");
-        int age = input.nextInt();
+        int age = Reader.optionsScanner();
         System.out.println("Which lesson do you want to add the student to? Press the classroom number");
         for (int i = 0; university.getLessonsList().size() > i; i++) {
             System.out.println("Lesson name= " + university.getLessonsList().get(i).getLessonName() + ", Assigned classroom= " + university.getLessonsList().get(i).getAssignedClassroom());
         }
-        int assignedClassroom = input.nextByte();
+        int assignedClassroom = Reader.optionsScanner();
         university.createStudent(name, age, assignedClassroom);
         System.out.println("The student was created and add it to a lesson!\n");
     }
@@ -120,7 +118,7 @@ public class Main {
             for (int i = 0; i < university.getStudentsList().size(); i++) {
                 System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName() + ", Age= " + university.getStudentsList().get(i).getAge());
             }
-            internalOptions = input.nextByte();
+            internalOptions = Reader.optionsScanner();
             if(internalOptions > 0){
                 students.add(university.getStudentByIndex(internalOptions-1));
             }
@@ -129,7 +127,7 @@ public class Main {
             for (int i = 0; i < university.getTeachersList().size(); i++) {
                 System.out.println("Teacher ID= " + university.getTeachersList().get(i).getProfessorID() + ", Name= " + university.getTeachersList().get(i).getName());
             }
-            internalOptions = input.nextByte();
+            internalOptions = Reader.optionsScanner();
             teacher = university.getTeacherByIndex(internalOptions-1);
             university.createLesson(lessonName, students, teacher);
             System.out.println("The lesson was created successfully!\n");
@@ -140,14 +138,13 @@ public class Main {
      * @param university type of data on which the print will be executed
      */
     public static void listTheLessonsWithGivenStudentIncluded(University university){
-        Scanner input = new Scanner(System.in);
         byte id;
         do {
             System.out.println("Choose the student for the lesson (type the ID) or press 0 to exit");
             for (int i = 0; i < university.getStudentsList().size(); i++) {
                 System.out.println("Student ID= " + university.getStudentsList().get(i).getStudentID() + ", Name= " + university.getStudentsList().get(i).getName());
             }
-            id = input.nextByte();
+            id = Reader.optionsScanner();
             System.out.println("This student is in the following lessons= ");
             for (int i = 0; i < university.getLessonsList().size(); i++) {
                 for (int j = 0; j < university.getLessonsList().get(i).getStudentsAssigned().size(); j++) {
